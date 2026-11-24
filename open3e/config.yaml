@@ -3,11 +3,11 @@ version: 0.7.9
 name: "Open3E Vitocal (can1)"
 slug: "open3e_vitocal"
 description: Connect to E3 Controls through CAN
-url: https://github.com/flecke-m/ha-addons/tree/main/open3e
+url: https://github.com/TheBoxHA/ha-addons/tree/main/open3e
 codenotary: big.dog@gmx.net
 arch:
-  - amd64
-  - aarch64
+- amd64
+- aarch64
 hassio_api: true
 host_network: true
 image: "fleckem/ha-addon-open3e"
@@ -19,19 +19,15 @@ options:
     Server_Topic: open3e_vitocal
     MQTT_FormatString: '{device}_{ecuAddr:03X}_{didNumber}_{didName}'
     MQTT_ClientID: open3e_vitocal
-  }
-}
 privileged:
-  - NET_ADMIN
-schema: {
-  "configurations": {
-      "can": "str",
-      "Listen_Topic": "str",
-      "Server_Topic": "str",
-      "MQTT_FormatString": "str",
-      "MQTT_ClientID": "str"
-  }
-}
+- NET_ADMIN
+schema:
+  configurations:
+    can: str
+    Listen_Topic: str
+    Server_Topic: str
+    MQTT_FormatString: str
+    MQTT_ClientID: str
 services:
-  - mqtt:need
+- mqtt:need
 startup: services
